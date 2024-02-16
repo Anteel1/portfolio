@@ -1,0 +1,130 @@
+.main {
+    /* Thuộc tính và giá trị mặc định cho tất cả các kích thước màn hình */
+    /* Ví dụ: */
+    width: 100%;
+    height: auto;
+    display:flex;
+    justify-content: space-around;
+  }
+
+.typing {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+   /* Gives that scrolling effect as the typing happens */
+  text-align: center;
+  animation: 
+    typing 3.5s steps(100), step-end infinite;
+}
+
+.item {
+  border-width: 1px;
+  border-color: 'white';
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  /* flex:1; */
+  width: 20%;
+  min-width: 200px;
+  margin: 1%;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill_detail {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.skill_item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item:hover .skill_detail {
+  visibility: visible;
+  opacity: 1;
+}
+
+.item:hover .skill_item {
+  visibility: hidden;
+}
+
+.item:hover {
+  color: rgb(255, 255, 255);
+  transform: scale(1.05, 1.05);
+}
+
+.horizontal_line {
+      width: 90px;
+      height: 0.5px; /* Adjust thickness as needed */
+      background-color: #9C9C9C; /* Adjust color as needed */
+}
+
+.exp_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 100%;
+}
+
+  /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */
+  @media only screen and (max-width: 768px) {
+    .main {
+      /* Thuộc tính và giá trị khi ở chế độ mobile */
+      /* Ví dụ: */
+      display: none; /* Ẩn phần tử */
+    }
+  
+    /* CSS cho nút hoặc icon hiển thị ở chế độ mobile */
+    .mobile_icon {
+      /* Thuộc tính và giá trị của icon */
+      /* Ví dụ: */
+      display: block; /* Hiển thị icon */
+      position: relative;
+      border-color: black;
+      backdrop-filter: blur(2px);
+    }
+
+    .intro {
+      display: none;
+    }
+  }
+  
+  /* CSS cho màn hình có chiều rộng lớn hơn 768px (chế độ web) */
+  @media only screen and (min-width: 769px) {
+    .main {
+      /* Thuộc tính và giá trị khi ở chế độ web */
+      /* Ví dụ: */
+      display: block; /* Hiển thị phần tử */
+    }
+  
+    /* CSS cho nút hoặc icon ẩn đi ở chế độ web */
+    .mobile_icon {
+      /* Thuộc tính và giá trị của icon */
+      /* Ví dụ: */
+      display: none; /* Ẩn icon */
+    }
+
+    .intro {
+      display: block;
+      opacity: 1;
+    }
+
+    @media (min-width: 1100px) {
+      .item {
+        flex: 0 0 20%; /* Adjust the percentage as needed */
+      }
+    }
+
+    @media (max-width: 1099px) {
+      .item {
+        flex: 0 0 40%; /* Adjust the percentage as needed */
+      }
+    }
+  }

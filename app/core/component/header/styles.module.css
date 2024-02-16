@@ -1,0 +1,171 @@
+/* CSS chung cho các màn hình */
+.main {
+    /* Thuộc tính và giá trị mặc định cho tất cả các kích thước màn hình */
+    /* Ví dụ: */
+    width: 100%;
+    height: auto;
+    display:flex;
+    justify-content: space-around;
+    transition: top 0.3s;
+  }
+
+  /* YourComponent.module.css */
+
+.socialIconsContainer {
+  position: absolute;
+  /* display: flex; */
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  /* transform: translateX(50%); */
+  z-index: 1000000000;
+}
+
+/* .logo_header {
+  -webkit-appearance:none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+} */
+
+.logo_header:hover > .socialIconsContainer {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-10%);
+}
+
+.nav_item a {
+  display: flex;
+}
+
+.nav_item {
+  display: flex;
+
+}
+
+.drop_menu{
+  position: absolute;
+  top: 9%;
+  
+}
+
+.drop_menu div {
+  padding-bottom: 2px;
+  border-bottom-width: 1px;
+  border-bottom-color:black ;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+  padding-right: 30px;
+}
+
+.nav_item a:hover   {
+  border-bottom: 1px solid white;
+  animation: borderAnimation 0.3s linear;
+}
+
+.nav_item a:hover div {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-3%);
+}
+
+.nav_item a :hover a{
+  border: none;
+  animation: none;
+}
+
+.drop_menu div:hover {
+  padding-left: 30px;
+  background-color: white;
+  color: black;
+} 
+
+@keyframes borderAnimation {
+  from {border-color: black;}
+  to {border-color: white;}
+}
+
+.logo_icon:hover   {
+  transform: translateY(-20%);
+}
+
+.logo_icon {
+  transition: all 0.3s ease;
+}
+  /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */
+  @media only screen and (max-width: 768px) {
+    .main {
+      /* Thuộc tính và giá trị khi ở chế độ mobile */
+      /* Ví dụ: */
+      display: none; /* Ẩn phần tử */
+    }
+  
+    /* CSS cho nút hoặc icon hiển thị ở chế độ mobile */
+    .mobile_icon {
+      /* Thuộc tính và giá trị của icon */
+      /* Ví dụ: */
+      display: block; /* Hiển thị icon */
+      position: relative;
+      border-color: black;
+      backdrop-filter: blur(2px);
+    }
+  }
+  
+  /* CSS cho màn hình có chiều rộng lớn hơn 768px (chế độ web) */
+  @media only screen and (min-width: 769px) {
+    .main {
+      /* Thuộc tính và giá trị khi ở chế độ web */
+      /* Ví dụ: */
+      display: block; /* Hiển thị phần tử */
+    }
+  
+    /* CSS cho nút hoặc icon ẩn đi ở chế độ web */
+    .mobile_icon {
+      /* Thuộc tính và giá trị của icon */
+      /* Ví dụ: */
+      display: none; /* Ẩn icon */
+    }
+
+    .socialIconsContainer {
+      position: absolute;
+      /* display: flex; */
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      top: 8%;
+      /* transform: translateX(50%); */
+      z-index: 1000000000;
+    }
+
+    .drop_menu{
+      position: absolute;
+      top: 9%;
+    }
+
+    .logo_header:hover > .socialIconsContainer {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-20%);
+    }
+
+  }
+
+  @media only screen and (max-height: 700px) {
+    .socialIconsContainer {
+      position: absolute;
+      /* display: flex; */
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      top: 13%;
+      /* transform: translateX(50%); */
+      z-index: 1000000000;
+    }
+
+    .drop_menu{
+      position: absolute;
+      top: 13%;
+    }
+
+  }

@@ -1,0 +1,11 @@
+.card {
+    border-width: 1px;
+    border-color: black;
+    padding: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    background:linear-gradient(to right, rgba(255,255,255,0.2), rgba(0,0,0,0.1));
+}
+
+
+/* error css */
