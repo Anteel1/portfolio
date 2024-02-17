@@ -33,7 +33,7 @@ export function Header() {
       <div className="mobile_icon" style={{display:isShow? '' : 'none',position:'absolute',width:'100%',height:'auto',zIndex:100000,background:"#000",borderWidth:1,borderColor:'#fff'}} >
         <div style={{justifyContent:'space-between',display:'flex',alignItems:'center',width:'60%'}} className="">
         <div className="">
-          <Image width={64} height={64} alt='chevron left icon' src='/logo_name.svg' />
+          <Image width={64} height={64} alt='chevron left icon' src='/logo_name2.svg' />
         </div>
         <div onClick={showSlideMenu} style={{padding:4}} className="">
           <Image width={24} height={24} alt='chevron left icon' src='/chevron_left.svg' />

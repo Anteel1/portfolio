@@ -23,7 +23,7 @@ export function HomeLayout() {
       id:3,
       name:"Javascript",
       img:'/js_icon.svg',
-      detail:['Core javascript','ES6+ Features']
+      detail:['Core javascript','ES6+ Features','Oauth2']
     },
     {
       id:4,
@@ -105,20 +105,12 @@ export function HomeLayout() {
   const ExpLayout = () => {
     return (
       <div className="opacity-1" id='skillLayout' style={{flex:1}}>
-      <div style={{display:'flex',alignItems:'center'}} className="flex">
+      <div style={{display:'flex',alignItems:'center',marginBottom:'2%'}} className="flex">
         <div className={styles.horizontal_line}></div>
         <p style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>Experience</p>
       </div>
-      <div style={{flexDirection:'column',minWidth:'80%', display: 'flex', alignItems: 'center', flexWrap: 'wrap', maxWidth: '100%',gap:20 }}>
-        <div style={{borderColor:'white',border:'solid',width:'100%',borderWidth:'1px',padding:'10px'}}>
-        <div className={styles.exp_item}>
-                <div style={{fontWeight:'bold'}} className='flex'>NorthStudio</div>
-                <div className='flex'>09-2023 / Present</div>
-              </div>
-             <div className="flex" style={{alignSelf:'start',fontStyle:'italic',letterSpacing:'1px'}}>Fresher backend nodejs</div> 
-             <div className="flex" style={{alignSelf:'start'}}>During my role as a Backend Developer at [Company Name], I had the opportunity to contribute to the development of robust and scalable backend systems using Node.js and TypeScript.</div> 
-        </div>
-         <div style={{borderColor:'white',border:'solid',width:'100%',borderWidth:'1px',padding:'10px'}}>
+      <div style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'center', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'center' }}>
+        <div style={{borderColor:'white',border:'solid',width:'40%',borderWidth:'1px',padding:'10px'}}>
         <div className={styles.exp_item}>
                 <div style={{fontWeight:'bold'}} className='flex'>NorthStudio</div>
                 <div className='flex'>09-2023 / Present</div>

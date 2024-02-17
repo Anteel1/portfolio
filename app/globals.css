@@ -89,3 +89,20 @@ body {
   animation: slideRight 1s ease-out;
   opacity: 1;
 }
+
+.scroll-watcher {
+  height: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  background-color: blueviolet;
+  width: 100%;
+  transform: scale(0, 1);
+  transform-origin: left;
+  animation: scroll-watcher 1s linear;
+  animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher {
+  to { transform: scale(1, 2); }
+}
