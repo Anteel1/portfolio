@@ -109,14 +109,42 @@ export function HomeLayout() {
         <div className={styles.horizontal_line}></div>
         <p style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>Experience</p>
       </div>
-      <div style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'center', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'center' }}>
+      <div style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'start', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'start' }}>
         <div style={{borderColor:'white',border:'solid',width:'40%',borderWidth:'1px',padding:'10px'}}>
         <div className={styles.exp_item}>
                 <div style={{fontWeight:'bold'}} className='flex'>NorthStudio</div>
-                <div className='flex'>09-2023 / Present</div>
+                <div className='flex'>09-2023 / 02-2024</div>
               </div>
              <div className="flex" style={{alignSelf:'start',fontStyle:'italic',letterSpacing:'1px'}}>Fresher backend nodejs</div> 
-             <div className="flex" style={{alignSelf:'start'}}>During my role as a Backend Developer at [Company Name], I had the opportunity to contribute to the development of robust and scalable backend systems using Node.js and TypeScript.</div> 
+             <div className="flex" style={{alignSelf:'start'}}>During my role as a Backend Developer at Northstudio, I had the opportunity to contribute to the development of robust and scalable backend systems using Node.js and TypeScript.</div> 
+        </div>
+            
+        {/* {
+          skillList.map((item)=>{
+            return (
+                <div className={styles.item} key={item.id}>
+                  <ul className={styles.skill_detail}>
+                    {item.detail.map((item)=>{
+                      return(
+                        <li style={{textAlign:'left'}} key={item}>{item}</li>
+                      )})}
+                </ul>
+                  <div className={styles.skill_item}>
+                  <Image width={24} height={24} alt='icon' src={item.img} />
+                  <p style={{padding:10}}>{item.name}</p>
+            </div>
+                </div>
+            )
+          }) 
+        } */}
+      </div><div style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'end', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'end' }}>
+        <div style={{borderColor:'white',border:'solid',width:'40%',borderWidth:'1px',padding:'10px'}}>
+        <div className={styles.exp_item}>
+                <div style={{fontWeight:'bold'}} className='flex'>Innorix</div>
+                <div className='flex'>02-2024 / Present</div>
+              </div>
+             <div className="flex" style={{alignSelf:'start',fontStyle:'italic',letterSpacing:'1px'}}>Fullstack developer</div> 
+             <div className="flex" style={{alignSelf:'start'}}>As a Fullstack Developer at Innorix, I spearheaded the development of backend services using Sail.js and JavaScript, enabling seamless communication between our database infrastructure and user interfaces. My responsibilities encompassed a comprehensive range of tasks aimed at optimizing system performance and enhancing user experience.</div> 
         </div>
             
         {/* {
