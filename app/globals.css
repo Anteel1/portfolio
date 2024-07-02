@@ -4,15 +4,17 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 0, 0, 0;
+  --text-color: #9C9C9C,
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+  --text-color: #090909,
   }
 }
 
@@ -21,17 +23,29 @@ html {
   overflow-y: scroll;
 }
 
+.dark_mode {
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.light_mode {
+  color :rgb(0, 0, 0);
+  border-color:  rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgb(var(--foreground-rgb))
     )
-    rgb(var(--background-start-rgb));
-    font-weight:lighter;
-    font-family: 'Courier New', Courier, monospace;
-    color:#fff;
+    rgb(var(--background-start-rgb)); */
+    background-color: rgb(var(--background-start-rgb));
+    font-weight:250;
+    font-family: 'monospace';
     padding:0 2px 2px 2px;
     width: 80%;
     margin: auto;
@@ -40,6 +54,13 @@ body {
     align-self: center;
     flex-direction: column;
 }
+
+p {
+  color: var(--text-color);
+  font-size: medium;
+  line-height: 2;
+}
+
 
 @keyframes slideDown {
   from {
@@ -54,7 +75,7 @@ body {
 
 
 .animate-slide-in {
-  animation: slideDown 1s ease-out;
+  animation: slideDown 0.5s ease-out;
   opacity: 1;
 }
 
@@ -70,7 +91,7 @@ body {
 }
 
 .animate-slide-left {
-  animation: slideLeft 1s ease-out;
+  animation: slideLeft 0.5s ease-out;
   opacity: 1;
 }
 
@@ -86,7 +107,7 @@ body {
 }
 
 .animate-slide-right {
-  animation: slideRight 1s ease-out;
+  animation: slideRight 0.5s ease-out;
   opacity: 1;
 }
 
@@ -106,3 +127,4 @@ body {
 @keyframes scroll-watcher {
   to { transform: scale(1, 2); }
 }
+

@@ -1,11 +1,11 @@
+"use client";
 import Image from 'next/image'
-import {Header, HomeLayout} from './core'
+import {Header, HomeLayout , Footer} from './core'
+import React, { useEffect, useRef, useState } from 'react'
 export default async function Home() {
   // const weatherData : Promise<weatherReponse> = await weatherService()
-
   return (
     <main >
-      {/* <div className='scroll-watcher' ></div> */}
       <Header />
         
       {/* <Card>
@@ -24,11 +24,7 @@ export default async function Home() {
       <div style={{marginTop:104}} className="">
       <HomeLayout />
       </div>
-      <div style={{marginTop:'10%',height:0.1,background:'white'}} ></div>
-      <div style={{backgroundColor:'black',color:'white'}} className="mt-3 flex flex-row justify-between">
-        <div className="flex m-2"> <Image alt='logo' width={104} height={104} src='/logo_name2.svg'/></div>
-        <div style={{alignItems:'center'}} className="flex m-2">@2023 - 2024 Personal</div>
-      </div>
+      <Footer />
     </main>
   )
 }

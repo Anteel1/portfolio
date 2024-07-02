@@ -17,7 +17,8 @@
 
 .item {
   border-width: 1px;
-  border-color: 'white';
+  border-color: rgb(var(--foreground-rgb));
+  border-radius: 2px;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -56,21 +57,36 @@
 }
 
 .item:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(var(--foreground-rgb));
   transform: scale(1.05, 1.05);
 }
 
 .horizontal_line {
       width: 90px;
       height: 0.5px; /* Adjust thickness as needed */
-      background-color: #9C9C9C; /* Adjust color as needed */
-}
+      background-color: rgb(var(--foreground-rgb)); /* Adjust color as needed */
+    }
 
 .exp_item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   min-width: 100%;
+}
+
+.border_title {
+  line-height: 2px;
+  font-style: italic;
+  align-self:center;
+  z-index: 1000000000;
+  letter-spacing: 1px;
+  margin-top: -12px;
+  margin-left: 12px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  background-color: rgb(var(--background-start-rgb));
+  max-width: fit-content;
+  padding: 0 4px;
 }
 
   /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */

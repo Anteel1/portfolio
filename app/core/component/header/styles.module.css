@@ -1,4 +1,5 @@
 /* CSS chung cho các màn hình */
+
 .main {
     /* Thuộc tính và giá trị mặc định cho tất cả các kích thước màn hình */
     /* Ví dụ: */
@@ -52,7 +53,7 @@
 .drop_menu div {
   padding-bottom: 2px;
   border-bottom-width: 1px;
-  border-bottom-color:black ;
+  border-bottom-color:  rgb(var(--foreground-rgb));
   visibility: hidden;
   opacity: 0;
   transition: all 0.2s linear;
@@ -60,7 +61,7 @@
 }
 
 .nav_item a:hover   {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(var(--foreground-rgb));
   animation: borderAnimation 0.3s linear;
 }
 
@@ -82,8 +83,8 @@
 } 
 
 @keyframes borderAnimation {
-  from {border-color: black;}
-  to {border-color: white;}
+  from {border-color: transparent}
+  to {border-color: rgb(var(--foreground-rgb));}
 }
 
 .logo_icon:hover   {
@@ -93,6 +94,7 @@
 .logo_icon {
   transition: all 0.3s ease;
 }
+
   /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */
   @media only screen and (max-width: 768px) {
     .main {

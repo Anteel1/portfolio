@@ -1,0 +1,5 @@
+.line_footer {
+    margin-top: 10%;
+    height: 0.5px;
+    background-color: rgb(var(--foreground-rgb));
+}

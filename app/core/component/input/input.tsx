@@ -1,4 +1,3 @@
-// components/TextAreaAndButton.js
 "use client"
 import React, { useState } from 'react';
 export function TextAreaAndButton({type}:{type? : string}) {

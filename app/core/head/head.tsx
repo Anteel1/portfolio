@@ -9,7 +9,7 @@ export function Layout(props:any) {
     <> 
     <html>
     <title>{title}</title>
-    <link rel="icon" href="/logo_circle2.svg" />
+    <link rel="icon" href="/logo_circle2_light.svg" />
     <body className={inter.className} >
         {props.children}
     </body>

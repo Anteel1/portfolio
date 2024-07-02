@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import { Logo } from "../logo";
 const data = [
   {
     title: "github",
@@ -29,6 +30,7 @@ export function Header() {
 
     // Thêm class để áp dụng animation sau khi trang đã render xong
     element?.classList.add("animate-slide-in");
+
   }, []);
   const AboutItem = () => {
     return data.map((item,index) => (
@@ -108,7 +110,7 @@ export function Header() {
 
   return (
     <header
-      style={{ position: "fixed", width: "80%", backgroundColor: "black" }}
+      style={{ position: "fixed", width: "80%", backgroundColor: "transparent" }}
       className="opacity-0"
       id="header"
     >
@@ -122,7 +124,7 @@ export function Header() {
           }}
         >
           <Link className={styles.logo_header} href="/">
-            <Image alt="logo" width={104} height={104} src="/logo_name2.svg" />
+            <Logo />
           </Link>
           <div className={styles.nav_item}>
             <div className="">
@@ -137,39 +139,6 @@ export function Header() {
                   className={styles.socialIconsContainer}
                 >
                   <AboutItem />
-                  {/* <div className="m-6">
-                    <Link href="https://github.com/Anteel1">
-                      <Image
-                        alt="logo_github"
-                        width={24}
-                        height={24}
-                        className={styles.logo_icon}
-                        src="/github_icon.svg"
-                      />
-                    </Link>
-                  </div>
-                  <div className="m-6">
-                    <Link href="https://www.linkedin.com/in/long-ki%E1%BA%BFn-l%C6%B0%C6%A1ng-845858240/">
-                      <Image
-                        alt="logo_linkedin"
-                        width={24}
-                        height={24}
-                        className={styles.logo_icon}
-                        src="/linkedin_icon.svg"
-                      />
-                    </Link>
-                  </div>
-                  <div className="m-6">
-                    <Link href="https://www.instagram.com/ant.eel2304/">
-                      <Image
-                        alt="logo_instagram"
-                        width={24}
-                        height={24}
-                        className={styles.logo_icon}
-                        src="/instagram_icon.svg"
-                      />
-                    </Link>
-                  </div> */}
                 </div>
               </Link>
             </div>
