@@ -136,9 +136,9 @@ export function HomeLayout() {
         return (
             <div className={styles.item} key={item.id}>
               <ul className={styles.skill_detail}>
-                {item.detail.map((item)=>{
+                {item.detail.map((item,i)=>{
                   return(
-                    <li style={{textAlign:'left'}} key={item}>{item}</li>
+                    <li style={{textAlign:'left'}} key={item+i}>{item}</li>
                   )})}
             </ul>
               <div className={styles.skill_item}>
@@ -178,7 +178,7 @@ export function HomeLayout() {
       <div id='exLayout' className="opacity-0">
       {data.map((item,key) =>{
         return (
-          <div key={key} style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'start', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'center', marginBottom:20 }}>
+          <div key={item.company+key} style={{flexDirection:'row',minWidth:'80%', display: 'flex', alignItems: 'start', flexWrap: 'wrap', maxWidth: '100%',gap:20, justifyContent:'center', marginBottom:20 }}>
           <div style={{borderColor:'white',border:'solid',width:'90%',borderWidth:'1px',padding:'10px'}}>
           <p className={styles.border_title}>{item.company}</p>
           <div className={styles.exp_item}>
