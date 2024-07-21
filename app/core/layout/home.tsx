@@ -138,9 +138,9 @@ export function HomeLayout() {
               <ul className={styles.skill_detail}>
                 {item.detail.map((item,i)=>{
                   return(
-                    <li style={{textAlign:'left'}} key={item+i}>{item}</li>
+                    <li key={item+i}><p>{item}</p></li>
                   )})}
-            </ul>
+              </ul>
               <div className={styles.skill_item}>
               <Image width={24} height={24} alt='icon' src={item.img} />
               <p style={{padding:10}}>{item.name}</p>

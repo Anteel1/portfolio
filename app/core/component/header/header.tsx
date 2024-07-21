@@ -26,11 +26,8 @@ export function Header() {
   const [language, setLanguage] = useState<any>(lang[0]);
   const [isShow, setIsShow] = useState<boolean>(false);
   useEffect(() => {
-    const element = document.getElementById("header");
-
-    // Thêm class để áp dụng animation sau khi trang đã render xong
+    const element = document.getElementById(styles.header);
     element?.classList.add("animate-slide-in");
-
   }, []);
   const AboutItem = () => {
     return data.map((item,index) => (
@@ -110,23 +107,22 @@ export function Header() {
 
   return (
     <header
-      style={{ position: "fixed", width: "80%", backgroundColor: "transparent" }}
       className="opacity-0"
-      id="header"
+      id={styles.header}
     >
       <MobileMenu isShow={isShow} />
       <nav className={styles.main}>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          <Link className={styles.logo_header} href="/">
+          <Link style={{flex:1}} className={styles.logo_header} href="/">
             <Logo />
           </Link>
-          <div className={styles.nav_item}>
+          <div style={{flex:1}}></div>
+          <div style={{flex:1}} className={styles.nav_item}>
             <div className="">
               <Link
                 className={styles.logo_header}

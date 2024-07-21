@@ -95,6 +95,12 @@
   transition: all 0.3s ease;
 }
 
+#header {
+  position: fixed;
+  background-color: rgb(var(--background-start-rgb));
+  width: 100%;
+}
+
   /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */
   @media only screen and (max-width: 768px) {
     .main {

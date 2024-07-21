@@ -5,26 +5,18 @@ import React, { useEffect, useRef, useState } from 'react'
 export default async function Home() {
   // const weatherData : Promise<weatherReponse> = await weatherService()
   return (
-    <main >
-      <Header />
-        
-      {/* <Card>
-        <div style={{display:'flex',flexDirection:'row'}}>
-          <div className="">
-            <div style={{fontSize:54,filter:'drop-shadow(0.1px 2.5px 2.5px #fff)',marginLeft:8}}>{dataWeather.current.temp_c}°</div>
+    <main>
+      <div className="" style={{display:'flex',width:'100%'}}>
+        <div style={{minWidth:20}}></div>
+        <div style={{flex:1}}>
+        <Header />
+          <div style={{marginTop:104}} className="">
+            <HomeLayout />
           </div>
-          <div style={{flex:1,display: "flex", justifyContent: "center",alignItems: "center",marginLeft:6 }} className="">
-          <div  style={{flex:1,fontSize:12}}>{dataWeather.location.name}<br/> {dataWeather.current.condition.text}</div>
-          <div style={{alignSelf:'flex-start'}}>
-          <Image alt='weather' style={{filter:'drop-shadow(0.1px 2.5px 2.5px #fff)'}} width={32} height={32} src={'https:'+dataWeather.current.condition.icon} />
-          </div>
-          </div>
+            <Footer />
         </div>
-      </Card> */}
-      <div style={{marginTop:104}} className="">
-      <HomeLayout />
-      </div>
-      <Footer />
+        <div style={{minWidth:20}}></div>
+        </div>
     </main>
   )
 }
