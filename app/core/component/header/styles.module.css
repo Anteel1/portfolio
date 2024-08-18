@@ -6,7 +6,7 @@
     width: 100%;
     height: auto;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     transition: top 0.3s;
   }
 
@@ -22,12 +22,12 @@
   z-index: 1000000000;
 }
 
-/* .logo_header {
+.logo_header {
   -webkit-appearance:none;
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-} */
+}
 
 .logo_header:hover > .socialIconsContainer {
   visibility: visible;
@@ -46,29 +46,34 @@
 
 .drop_menu{
   position: absolute;
-  top: 9%;
-  
+  padding-top: 38px;
+  /* top: 70%; */
 }
 
 .drop_menu div {
+  background-color:  rgb(var(--foreground-rgb));
+  color:rgb(var(--background-start-rgb));
   padding-bottom: 2px;
-  border-bottom-width: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-bottom-color:  rgb(var(--foreground-rgb));
   visibility: hidden;
-  opacity: 0;
-  transition: all 0.2s linear;
-  padding-right: 30px;
+  opacity: 1;
+  transition: 0.1s ease;
+  /* padding-right: 30px; */
 }
 
 .nav_item a:hover   {
   border-bottom: 1px solid rgb(var(--foreground-rgb));
   animation: borderAnimation 0.3s linear;
 }
-
+.nav_item a {
+  border-bottom: 1px solid rgb(var(--background-start-rgb))
+}
 .nav_item a:hover div {
   visibility: visible;
   opacity: 1;
-  transform: translateX(-3%);
+  transform: translateX(-10%);
 }
 
 .nav_item a :hover a{
@@ -77,9 +82,10 @@
 }
 
 .drop_menu div:hover {
-  padding-left: 30px;
-  background-color: white;
-  color: black;
+  background-color:  rgb(var(--background-start-rgb));
+  color:rgb(var(--foreground-rgb ));
+  transition: all 0.2s linear;
+
 } 
 
 @keyframes borderAnimation {
@@ -98,7 +104,8 @@
 #header {
   position: fixed;
   background-color: rgb(var(--background-start-rgb));
-  width: 100%;
+  left: 4%;    /* Aligns the header to the left edge */
+  right: 4%; 
 }
 
   /* CSS cho màn hình có chiều rộng tối đa 768px (chế độ mobile) */
@@ -146,10 +153,10 @@
       z-index: 1000000000;
     }
 
-    .drop_menu{
+    /* .drop_menu{
       position: absolute;
-      top: 9%;
-    }
+      top: 20%;
+    } */
 
     .logo_header:hover > .socialIconsContainer {
       visibility: visible;
@@ -171,9 +178,9 @@
       z-index: 1000000000;
     }
 
-    .drop_menu{
+    /* .drop_menu{
       position: absolute;
       top: 13%;
-    }
+    } */
 
   }  

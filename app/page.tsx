@@ -2,16 +2,22 @@
 import Image from 'next/image'
 import {Header, HomeLayout , Footer} from './core'
 import React, { useEffect, useRef, useState } from 'react'
-export default async function Home() {
+import i18next from 'i18next';
+import './i18n';
+function Home(data:any) {
   // const weatherData : Promise<weatherReponse> = await weatherService()
+  const [lang,setLang] = useState("EN")
+  const changeLanguageFunc = (newLang : string) =>{
+    i18next.changeLanguage(newLang.toLowerCase(),() =>setLang(newLang))
+  }
   return (
     <main>
-      <div className="" style={{display:'flex',width:'100%'}}>
+      <div className="" style={{display:'flex',width:'100%',flex:1}}>
         <div style={{minWidth:20}}></div>
-        <div style={{flex:1}}>
-        <Header />
+        <div style={{flex:1,position:'relative'}}>  
+        <Header header_lang={i18next.t} lang_func={changeLanguageFunc} language={lang}/>
           <div style={{marginTop:104}} className="">
-            <HomeLayout />
+            <HomeLayout home_lang={i18next.t}/>
           </div>
             <Footer />
         </div>
@@ -21,6 +27,7 @@ export default async function Home() {
   )
 }
 
+export default Home
 const dataWeather = {
   location: {
     name: 'Ho Chi Minh City',

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { Logo } from "../logo";
+import { i18n, TFunction } from "i18next";
 const data = [
   {
     title: "github",
@@ -21,9 +22,9 @@ const data = [
     img: "/instagram_icon.svg",
   },
 ];
-export function Header() {
+export function Header({header_lang, lang_func, language} : {header_lang : TFunction, lang_func : any,language:string}) {
   const lang = ["EN", "VI"];
-  const [language, setLanguage] = useState<any>(lang[0]);
+  // const [language, setLanguage] = useState<any>(lang[0]);
   const [isShow, setIsShow] = useState<boolean>(false);
   useEffect(() => {
     const element = document.getElementById(styles.header);
@@ -52,7 +53,11 @@ export function Header() {
     return (
       <>
         {lang.map((item, index) => (
-          <div onClick={() => setLanguage(lang[index])} key={index}>
+          <div style={{textAlign:'justify'}} onClick={() => {
+            // setLanguage(lang[index])
+            // lang_func.changeLanguage(lang[index].toLowerCase())
+            lang_func(lang[index])
+            }} key={index}>
             {item}
           </div>
         ))}
@@ -116,20 +121,21 @@ export function Header() {
           style={{
             display: "flex",
             alignItems: "center",
+            justifyContent:'space-between'
           }}
         >
-          <Link style={{flex:1}} className={styles.logo_header} href="/">
+          <Link style={{}} className={styles.logo_header} href="/">
             <Logo />
           </Link>
-          <div style={{flex:1}}></div>
-          <div style={{flex:1}} className={styles.nav_item}>
+          {/* <div style={{flex:1}}></div> */}
+          <div style={{}} className={styles.nav_item}>
             <div className="">
               <Link
                 className={styles.logo_header}
                 style={{ padding: 10 }}
                 href="/"
               >
-                About
+                {header_lang("common:about")}
                 <div
                   style={{ top: "55%" }}
                   className={styles.socialIconsContainer}
@@ -143,19 +149,19 @@ export function Header() {
                 style={{ padding: 10 }}
                 href="https://drive.usercontent.google.com/u/0/uc?id=1RZf0GefoCRIN1SO6v5cPUOBytBNFMWN5&export=download"
               >
-                CV
+                {header_lang("common:cv")}
               </Link>
             </div>
-            {/* <div  className="">
-          <div className={styles.fire}></div>
-          <Link style={{padding:10}} href='/'>Contact</Link>
-          </div>  */}
-            {/* <div  className="">
-          <div className={styles.fire}></div>
-          <Link style={{padding:10}} href='#'><p style={{width:16}}>{language}</p><Image width={24} height={24} alt='down icon' src='/arrow_down.svg'/>
-          <div className={styles.drop_menu}><DropLanguageMenu /></div>
-          </Link>
-          </div> */}
+            <div className="">
+              <Link
+                style={{ padding: 10 }}
+                href="#"
+              >
+                {language}
+                <Image width={24} height={24} alt='down icon' src='/arrow_down.svg'/>
+                <div className={styles.drop_menu}><DropLanguageMenu /></div>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -179,7 +185,7 @@ export function Header() {
             style={{ display: "flex", justifyContent: "center" }}
             className=""
           >
-            Home
+            {header_lang("common:home")}
           </div>
         </div>
       </nav>

@@ -1928,6 +1928,13 @@ https-proxy-agent@^7.0.2:
     agent-base "^7.0.2"
     debug "4"
 
+i18next@^23.13.0:
+  version "23.13.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.13.0.tgz#d3cba6c5611b9826ff988f97a4929638a91875f6"
+  integrity sha512-B+g0/KTKmN3+NeMKPljQxdrih6Q6lyDF5O2e/Ofd0JQsTLojJD/BSTTN04iw6OVc0yBiHeypu5hoBNV6ag44Zw==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz"

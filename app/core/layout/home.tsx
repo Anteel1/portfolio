@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
-export function HomeLayout() {
-  const item = [1,2,3,4,5,6,7,8]
-  const intro1 = "As a budding backend developer specializing in JavaScript, Node.js, and NestJS, I’m eager to dive into web development. With a solid foundation in server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute."
+import { TFunction } from 'i18next';
+export function HomeLayout({home_lang} : {home_lang : TFunction}) {
+  // const intro1 = "As a budding backend developer specializing in JavaScript, Node.js, and NestJS, I’m eager to dive into web development. With a solid foundation in server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute."
   // const intro2="Armed with a foundational understanding of server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute"
   const skillList = [
     {
@@ -121,14 +121,14 @@ export function HomeLayout() {
       // window.removeEventListener('scroll', handleScroll);
     };
     // elementTop?.classList.add('animate-slide-in')
-  },[])
+  })
 
   const SkillLayout = () =>{
   return (
   <div className="opacity-1"  style={{flex:1,marginBottom:'6%'}}>
   <div id='skillTitle' style={{display:'flex',alignItems:'center'}} className="flex opacity-0">
     <div className={styles.horizontal_line}></div>
-    <p  style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>Skill</p>
+    <p  style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>{home_lang('common:skill')}</p>
   </div>
   <div id='skillLayout' className="opacity-0" style={{minWidth:'80%', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', maxWidth: '100%' }}>
     {
@@ -160,7 +160,7 @@ export function HomeLayout() {
         company: "NorthStudio",
         duration_time:"09-2023 / 02-2024",
         position:"Fresher backend nodejs",
-        description :"During my role as a Backend Developer at Northstudio, I had the opportunity to contribute to the development of robust and scalable backend systems using Node.js and TypeScript."
+        description :"Currently working as a Backend Developer at Northstudio, I contribute to the development of robust and scalable backend systems using Node.js and NestJS. My role involves implementing new features such as OAuth 2, user interfaces, authentication, and more."
       },
       {
         company: "Innorix",
@@ -173,7 +173,7 @@ export function HomeLayout() {
       <div className="opacity-1"  style={{flex:1}}>
       <div id='exTitle' style={{display:'flex',alignItems:'center',marginBottom:'2%'}} className="flex opacity-0">
         <div className={styles.horizontal_line}></div>
-        <p style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>Experience</p>
+        <p style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>{home_lang('common:experience')}</p>
       </div>
       <div id='exLayout' className="opacity-0">
       {data.map((item,key) =>{
@@ -208,8 +208,8 @@ export function HomeLayout() {
       </div>
       <div id='right_body' className='opacity-0' style={{flex:1,display:'flex',flexDirection:'column',maxWidth:500,justifyContent:'left'}} >
         <p style={{textAlign:'right',margin:4,fontStyle:'italic',letterSpacing:1.5,maxWidth:350,fontSize:12}}>#Backend #Devops</p>
-        <p style={{fontSize:60,fontWeight:'bolder',lineHeight:1.25,letterSpacing:4}}>Hi,<br /><span>I&apos;m Luong !</span></p>
-        <p id='intro' className='opacity-0' style={{maxWidth:350,lineHeight:2}}>{intro1}</p>
+        <p style={{fontSize:60,fontWeight:'bolder',lineHeight:1.25,letterSpacing:4}}>{home_lang("common:intro")} <br />{home_lang("common:intro1")}</p>
+        <p id='intro' className='opacity-0' style={{maxWidth:350,lineHeight:2}}>{home_lang("common:info")}</p>
       </div>
     </div>
     <SkillLayout/>
