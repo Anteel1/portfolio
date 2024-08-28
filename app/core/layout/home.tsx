@@ -159,14 +159,14 @@ export function HomeLayout({home_lang} : {home_lang : TFunction}) {
       {
         company: "NorthStudio",
         duration_time:"09-2023 / 02-2024",
-        position:"Fresher backend nodejs",
-        description :"Currently working as a Backend Developer at Northstudio, I contribute to the development of robust and scalable backend systems using Node.js and NestJS. My role involves implementing new features such as OAuth 2, user interfaces, authentication, and more."
+        position:home_lang("common:company_position_1"),
+        description :home_lang("common:company_description_1")
       },
       {
         company: "Innorix",
         duration_time:"02-2024 / Present",
-        position:"Fullstack developer",
-        description :"As a Fullstack Developer at Innorix, I spearheaded the development of backend services using Sail.js and JavaScript, enabling seamless communication between our database infrastructure and user interfaces. My responsibilities encompassed a comprehensive range of tasks aimed at optimizing system performance and enhancing user experience."
+        position:home_lang("common:company_position_2"),
+        description :home_lang("common:company_description_2")
       }
     ]
     return (

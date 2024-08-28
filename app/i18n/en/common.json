@@ -6,5 +6,9 @@
     "experience":"Experience",
     "intro":"Hi,",
     "intro1":"I'm Luong !",
-    "info":"As a budding backend developer specializing in JavaScript, Node.js, and NestJS, I’m eager to dive into web development. With a solid foundation in server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute."
+    "info":"As a budding backend developer specializing in JavaScript, Node.js, and NestJS, I’m eager to dive into web development. With a solid foundation in server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute.",
+    "company_position_1":"Fresher backend nodejs",
+    "company_description_1":"Currently working as a Backend Developer at Northstudio, I contribute to the development of robust and scalable backend systems using Node.js and NestJS. My role involves implementing new features such as OAuth 2, user interfaces, authentication, and more.",
+    "company_position_2":"Fullstack developer",
+    "company_description_2":"As a Fullstack Developer at Innorix, I spearheaded the development of backend services using Sail.js and JavaScript, enabling seamless communication between our database infrastructure and user interfaces. My responsibilities encompassed a comprehensive range of tasks aimed at optimizing system performance and enhancing user experience."
 }

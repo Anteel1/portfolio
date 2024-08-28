@@ -4,7 +4,11 @@
     "home":"Trang chủ",
     "skill":"Kỹ năng",
     "experience":"Kinh nghiệm",
-    "intro":"Hi,",
-    "intro1":"I'm Luong !",
-    "info":"As a budding backend developer specializing in JavaScript, Node.js, and NestJS, I’m eager to dive into web development. With a solid foundation in server-side logic, APIs, and database management, I bring a fresh perspective and a strong desire to learn and contribute."
-}
+    "intro":"Xin chào,",
+    "intro1":"Lương đây !",
+    "info":"Là một lập trình viên chuyên sâu về JavaScript, NodeJs và NestJS. Có kinh nghiệm triển khai hệ thống trên các nền tảng điện toán đám mây. Đồng thời phát triển API,đảm nhận việc thiết kế và quản lý cơ sở dữ liệu.",
+    "company_position_1":"Lập trình viên Fresher NodeJs",
+    "company_description_1":"Tôi đảm nhận vị trí lập trình viên với các công nghệ sử dụng là NodeJs,Nestjs. Thực hiện xây dựng API,thiết kế hệ thống và cơ sở dữ liệu cho phần mềm quản lý nội bộ, ứng dụng đa nền tảng và Website. Bảo trì, nâng cấp hệ thống đồng thời thực hiện triển khai hệ thống lên các dịch vụ điện toán đám mây.",
+    "company_position_2":"Lập trình viên Fullstack",
+    "company_description_2":"Đảm nhận vị trí Fullstack với công nghệ NodeJs, SailJs. Thực hiện các công việc được giao trực tiếp từ team Hàn Quốc. Xây dựng giao diện Website và thiết kế hệ thống, cơ sở dữ liệu quan hệ. Phát triển hệ thống theo mô hình Scrum. Vá lỗi và chỉnh sửa theo feedback đến từ khách hàng."
+}   
