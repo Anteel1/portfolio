@@ -21,7 +21,8 @@ export async function GET(request : NextRequest) {
       message : API_MESSAGE.ERROR,
       status : API_STATUS.BAD_REQUEST,
       data: {
-        message :'Get Symbol stock error'
+        message :'Get Symbol stock error',
+        info:error
       }
     });
   }
