@@ -4,27 +4,15 @@ import { NextResponse , NextRequest } from "next/server";
 
 // To handle a GET request to /api
 export async function GET(request : NextRequest) {
-  try {
-    const querySymbol = request.nextUrl.searchParams.get('symbol')
-    const getStockBySymbol = await fetch(`https://iboard-query.ssi.com.vn/le-table?stockSymbol=${querySymbol}&pageSize=50`,{
-      method:'GET'
-    })
-    const result = await getStockBySymbol.json()
-    const response : ApiResponse<any> = {
-      message : API_MESSAGE.SUCCESS,
-      status : API_STATUS.SUCCESS,
-      data: result.data
-    }
-    return customResponse(response);
-  } catch (error) {
-    return customResponse({
-      message : API_MESSAGE.ERROR,
-      status : API_STATUS.BAD_REQUEST,
-      data: {
-        message :'Get Symbol stock error',
-        info:error
-      }
-    });
+  const querySymbol = request.nextUrl.searchParams.get('symbol')
+  const getStockBySymbol = await fetch(`https://iboard-query.ssi.com.vn/le-table?stockSymbol=${querySymbol}&pageSize=50`,{
+    method:'GET'
+  })
+  const result = await getStockBySymbol.json()
+  const response : ApiResponse<any> = {
+    message : API_MESSAGE.SUCCESS,
+    status : API_STATUS.SUCCESS,
+    data: result.data
   }
-  
+  return customResponse(response);
 }

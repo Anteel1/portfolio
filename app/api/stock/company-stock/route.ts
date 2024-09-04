@@ -4,8 +4,19 @@ import { NextResponse , NextRequest } from "next/server";
 
 // To handle a GET request to /api
 export async function GET(request : NextRequest) {
-  try {
-    const querySymbol = request.nextUrl.searchParams.get('symbol')
+  // try {
+    
+  // } catch (error) {
+  //   return customResponse({
+  //     message : API_MESSAGE.ERROR,
+  //     status : API_STATUS.BAD_REQUEST,
+  //     data: {
+  //       message :'Get Company stock error',
+  //       info:error
+  //     }
+  //   });
+  // }
+  const querySymbol = request.nextUrl.searchParams.get('symbol')
     const getCompanyStockBySymbol = await fetch(`https://iboard-query.ssi.com.vn/v2/stock/${querySymbol}`,{
       method:'GET'
     })
@@ -16,15 +27,4 @@ export async function GET(request : NextRequest) {
       data: result.data
     }
     return customResponse(response);
-  } catch (error) {
-    return customResponse({
-      message : API_MESSAGE.ERROR,
-      status : API_STATUS.BAD_REQUEST,
-      data: {
-        message :'Get Company stock error',
-        info:error
-      }
-    });
-  }
-  
 }
