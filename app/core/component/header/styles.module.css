@@ -47,6 +47,7 @@
 .drop_menu{
   position: absolute;
   padding-top: 38px;
+  display: none;
   /* top: 70%; */
 }
 
@@ -74,6 +75,7 @@
   visibility: visible;
   opacity: 1;
   transform: translateX(-10%);
+  display: block;
 }
 
 .nav_item a :hover a{
@@ -81,12 +83,15 @@
   animation: none;
 }
 
-.drop_menu div:hover {
+.drop_menu :hover {
   background-color:  rgb(var(--background-start-rgb));
   color:rgb(var(--foreground-rgb ));
   transition: all 0.2s linear;
-
 } 
+
+.lang_item {
+  text-align: justify;
+}
 
 @keyframes borderAnimation {
   from {border-color: transparent}

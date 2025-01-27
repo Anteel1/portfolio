@@ -53,7 +53,7 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
     return (
       <>
         {lang.map((item, index) => (
-          <div style={{textAlign:'justify'}} onClick={() => {
+          <div className={styles.lang_item} onClick={() => {
             // setLanguage(lang[index])
             // lang_func.changeLanguage(lang[index].toLowerCase())
             lang_func(lang[index])
@@ -68,47 +68,40 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
   const MobileMenu = ({ isShow }: { isShow?: boolean }) => {
     return (
       <div
-        className="mobile_icon"
-        style={{
-          display: isShow ? "" : "none",
-          position: "absolute",
-          width: "100%",
-          height: "auto",
-          zIndex: 100000,
-          background: "#000",
-          borderWidth: 1,
-          borderColor: "#fff",
-        }}
+        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 shadow-lg z-50 transform ${
+          isShow ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300`}
       >
-        <div
-          style={{
-            justifyContent: "space-between",
-            display: "flex",
-            alignItems: "center",
-            width: "60%",
-          }}
-          className=""
-        >
-          <div className="">
-            <Image
-              width={64}
-              height={64}
-              alt="chevron left icon"
-              src="/logo_name2.svg"
-            />
-          </div>
-          <div onClick={showSlideMenu} style={{ padding: 4 }} className="">
-            <Image
-              width={24}
-              height={24}
-              alt="chevron left icon"
-              src="/chevron_left.svg"
-            />
-          </div>
+        <div className="p-4 text-white">
+          <h2 className="text-xl font-bold mb-4">Menu</h2>
+          <ul className="space-y-2">
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
+                Contact
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     );
   };
+  
+  
 
   return (
     <header
@@ -186,7 +179,6 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
             style={{ display: "flex", justifyContent: "center" }}
             className=""
           >
-            {header_lang("common:home")}
           </div>
         </div>
       </nav>
