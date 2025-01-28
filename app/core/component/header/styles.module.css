@@ -37,6 +37,7 @@
 
 .nav_item a {
   display: flex;
+  margin-left: 4px;
 }
 
 .nav_item {
@@ -189,3 +190,38 @@
     } */
 
   }  
+
+  @keyframes underline {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .animate-underline {
+    animation: underline 0.3s ease-in-out forwards;
+  }
+
+  /* Add underline effect */
+.underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px; /* Adjust underline thickness */
+  background-color: white; /* Color of the underline */
+  transition: width 0.3s ease-in-out; /* Smooth transition */
+}
+
+.underline:hover::after {
+  width: 100%; /* Expand the underline on hover */
+}

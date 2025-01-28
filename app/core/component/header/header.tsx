@@ -32,17 +32,34 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
   }, []);
   const AboutItem = () => {
     return data.map((item,index) => (
-      <div key={item.title} className={`m-6 delay-${index*100} opacity-0 transform transition-all duration-${index*500}`}>
-        <Link href={item.link}>
-          <Image
-            alt={item.title}
-            width={24}
-            height={24}
-            className={styles.logo_icon}
-            src={item.img}
-          />
-        </Link>
-      </div>
+      <div
+  key={item.title}
+  style={{zIndex:1000}}
+  className={`mt-4 ml-6 delay-${index * 100} opacity-0 transform transition-all duration-${
+    index * 500
+  }`}
+>
+  <Link href={item.link} className="flex items-center justify-center">
+    <div
+      className="w-16 h-16 flex items-center justify-center bg-transparent"
+      style={{
+        width: "24px", // Set a fixed width
+        height: "24px",
+        borderRadius: " 20%",
+      }}
+    >
+      <Image
+        alt={item.title}
+        width={24}
+        height={24}
+        className={styles.logo_icon}
+        src={item.img}
+        layout="responsive"
+      />
+    </div>
+  </Link>
+</div>
+
     ));
   };
 
@@ -65,50 +82,78 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
     );
   };
 
-  const MobileMenu = ({ isShow }: { isShow?: boolean }) => {
+  const MobileMenu = ({
+    isShow,
+    onClose,
+  }: {
+    isShow?: boolean;
+    onClose: () => void;
+  }) => {
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  
     return (
-      <div
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 shadow-lg z-50 transform ${
-          isShow ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300`}
-      >
-        <div className="p-4 text-white">
-          <h2 className="text-xl font-bold mb-4">Menu</h2>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
-                Contact
-              </a>
-            </li>
+      <>
+        {/* Background Overlay */}
+        {isShow && (
+          <div
+            className="fixed inset-0 bg-black opacity-50 z-40"
+            onClick={onClose} // Close menu when clicking outside
+          ></div>
+        )}
+  
+        {/* Sliding Menu */}
+        <div
+          className={`fixed top-0 left-0 h-full w-64 shadow-lg z-50 transform border ${
+            isShow ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300`}
+          style={{
+            backgroundColor: "rgba(var(--background-start-rgb), 1)",
+            borderColor: "#090909",
+          }}
+        >
+          <div className="p-4 text-white flex justify-between items-center">
+            <h2 className="text-xl font-bold">Menu</h2>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="text-white p-2"
+            >
+              ✕
+            </button>
+          </div>
+          <ul className="space-y-2 p-4">
+            {["Home", "About", "Services", "Contact"].map((item) => (
+              <li key={item}>
+                <a
+                  href="#"
+                  onClick={() => setSelectedItem(item)} // Handle selection
+                  className={`block py-2 px-4 rounded relative ${
+                    selectedItem === item ? "text-white" : "text-white"
+                  } group`}
+                >
+                  {item}
+                  {/* Underline */}
+                  <span
+                    className={`absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full ${
+                      selectedItem === item ? "w-full" : ""
+                    }`}
+                  ></span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
-      </div>
+      </>
     );
   };
   
   
-
   return (
     <header
       className="opacity-0"
       id={styles.header}
     >
-      <MobileMenu isShow={isShow} />
+      <MobileMenu isShow={isShow} onClose={()=>setIsShow(!isShow)}/>
       <nav className={styles.main}>
         <div
           style={{
@@ -122,41 +167,51 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
           </Link>
           {/* <div style={{flex:1}}></div> */}
           <div style={{}} className={styles.nav_item}>
-            <div className="">
-              <Link
-                className={styles.logo_header}
-                style={{ padding: 10 }}
-                href="/"
-              >
-                {header_lang("common:about")}
-                <div
-                  style={{ top: "55%" }}
-                  className={styles.socialIconsContainer}
-                >
-                  <AboutItem />
-                </div>
-              </Link>
-            </div>
-            <div className="">
-              <Link
-                style={{ padding: 10 }}
-                href="https://drive.usercontent.google.com/uc?id=1PlEpXbbQ9YSSJkMGAt4zDxlfvS61tERg&authuser=0&export=download"
-                download
-              >
-                {header_lang("common:cv")}
-              </Link>
-            </div>
-            <div className="">
-              <Link
-                style={{ padding: 10 }}
-                href="#"
-              >
-                {language}
-                <Image width={24} height={24} alt='down icon' src='/arrow_down.svg'/>
-                <div className={styles.drop_menu}><DropLanguageMenu /></div>
-              </Link>
-            </div>
-          </div>
+  <div>
+    <Link
+      className={`${styles.logo_header} ${styles.underline}`}
+      style={{ padding: 10 }}
+      href="/"
+    >
+      {header_lang("common:about")}
+      <div
+        style={{ top: "80%" }}
+        className={styles.socialIconsContainer}
+      >
+        <AboutItem />
+      </div>
+    </Link>
+  </div>
+  <div>
+    <Link
+      className={`${styles.underline}`}
+      style={{ padding: 10 }}
+      href="https://drive.usercontent.google.com/uc?id=1PlEpXbbQ9YSSJkMGAt4zDxlfvS61tERg&authuser=0&export=download"
+      download
+    >
+      {header_lang("common:cv")}
+    </Link>
+  </div>
+  <div>
+    <Link
+      className={`${styles.underline}`}
+      style={{ padding: 10 }}
+      href="#"
+    >
+      {language}
+      <Image
+        width={24}
+        height={24}
+        alt="down icon"
+        src="/arrow_down.svg"
+      />
+      <div className={styles.drop_menu}>
+        <DropLanguageMenu />
+      </div>
+    </Link>
+  </div>
+</div>
+
         </div>
       </nav>
       <nav className={styles.mobile_icon}>
