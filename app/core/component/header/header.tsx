@@ -186,7 +186,7 @@ export function Header({header_lang, lang_func, language} : {header_lang : TFunc
     <Link
       className={`${styles.underline}`}
       style={{ padding: 10 }}
-      href="https://drive.usercontent.google.com/uc?id=1PlEpXbbQ9YSSJkMGAt4zDxlfvS61tERg&authuser=0&export=download"
+      href="https://drive.usercontent.google.com/uc?id=1io_m7IjyUwCEAlrVFoXH-IR2PLzNuReO&authuser=0&export=download"
       download
     >
       {header_lang("common:cv")}
