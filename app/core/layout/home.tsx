@@ -158,7 +158,7 @@ export function HomeLayout({home_lang} : {home_lang : TFunction}) {
     const data = [
       {
         company: "NorthStudio",
-        duration_time:"09-2023 / 02-2024",
+        duration_time:"06-2023 / 02-2024",
         position:home_lang("common:company_position_1"),
         description :home_lang("common:company_description_1")
       },
