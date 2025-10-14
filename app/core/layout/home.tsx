@@ -54,6 +54,30 @@ export function HomeLayout({home_lang} : {home_lang : TFunction}) {
       name:"AWS",
       img:'/icon_aws-ec2.svg',
       detail:['EC2 Instance','S3 Storage']
+    },
+    {
+      id:9,
+      name:"React",
+      img:'/react-js_icon.svg',
+      detail:['useState', 'useEffect', 'React Router']
+    },
+    {
+      id:10,
+      name:"Typescript",
+      img:'/icon-typescript.svg',
+      detail:['Interfaces', 'Type Inference']
+    },
+    {
+      id:11,
+      name:"SQLServer",
+      img:'/sql-server_icon.svg',
+      detail: ['T-SQL Queries', 'Stored Procedures']
+    },
+    {
+      id:12,
+      name:"Postgre",
+      img:'/postgres_icon.svg',
+      detail: ['SQL Queries', 'Indexing & Joins']
     }
   ]
   
@@ -123,36 +147,156 @@ export function HomeLayout({home_lang} : {home_lang : TFunction}) {
     // elementTop?.classList.add('animate-slide-in')
   })
 
-  const SkillLayout = () =>{
-  return (
-  <div className="opacity-1"  style={{flex:1,marginBottom:'6%'}}>
-  <div id='skillTitle' style={{display:'flex',alignItems:'center'}} className="flex opacity-0">
-    <div className={styles.horizontal_line}></div>
-    <p  style={{fontSize:42,fontWeight:'bold',fontStyle:'italic',marginLeft:4,letterSpacing:4}}>{home_lang('common:skill')}</p>
-  </div>
-  <div id='skillLayout' className="opacity-0" style={{minWidth:'80%', display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', maxWidth: '100%' }}>
-    {
-      skillList.map((item)=>{
-        return (
-            <div className={styles.item} key={item.id}>
-              <ul className={styles.skill_detail}>
-                {item.detail.map((item,i)=>{
-                  return(
-                    <li key={item+i}><p>{item}</p></li>
-                  )})}
-              </ul>
-              <div className={styles.skill_item}>
-              <Image width={24} height={24} alt='icon' src={item.img} />
-              <p style={{padding:10}}>{item.name}</p>
-              </div>
-            </div>
-        )
-      }) 
+ 
+const SkillLayout = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % skillList.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + skillList.length) % skillList.length);
+  };
+
+  const getItemPosition = (index: number) => {
+    const diff = index - currentIndex;
+    const total = skillList.length;
+    
+    let position = diff;
+    if (diff > total / 2) position = diff - total;
+    if (diff < -total / 2) position = diff + total;
+    
+    return position;
+  };
+
+  const getItemStyle = (position: any, isMobile: boolean) => {
+    if (isMobile) {
+      const styles = {
+        0: { scale: 1, zIndex: 50, opacity: 1, y: 0 },
+      };
+      return styles[position] || { scale: 0, zIndex: 0, opacity: 0, y: 0 };
     }
-  </div>
-</div>
-)
-  }
+    
+    const styles = {
+      0: { scale: 1.2, zIndex: 50, opacity: 1, y: 0 },
+      1: { scale: 0.85, zIndex: 45, opacity: 0.7, y: 80 },
+      [-1]: { scale: 0.85, zIndex: 45, opacity: 0.7, y: 80 },
+      2: { scale: 0.5, zIndex: 30, opacity: 0.4, y: 60 },
+      [-2]: { scale: 0.5, zIndex: 30, opacity: 0.4, y: 60 }
+    };
+    
+    return styles[position] || { scale: 0, zIndex: 0, opacity: 0, y: 80 };
+  };
+
+  return (
+    <div id="skillLayout" className="w-full py-8 md:py-16 px-4 opacity-0" style={{ flex: 1, marginBottom: '6%' }}>
+      <div id='skillTitle' style={{display:'flex',alignItems:'center'}} className="flex opacity-0">
+        <div className={styles.horizontal_line}></div>
+        <p className="text-2xl md:text-4xl font-bold italic ml-1 md:ml-2" style={{letterSpacing:4}}>
+          {home_lang('common:skill')}
+        </p>
+      </div>
+
+      <div className="relative w-full h-[450px] md:h-[500px] flex items-center justify-center overflow-hidden mt-8">
+        {/* Carousel Items */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          {skillList.map((item, index) => {
+            const position = getItemPosition(index);
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+            const style = getItemStyle(position, isMobile);
+            const isVisible = isMobile ? position === 0 : Math.abs(position) <= 2;
+            
+            if (!isVisible) return null;
+
+            const spacing = isMobile ? 0 : 280;
+
+            return (
+              <div
+                key={item.id}
+                className="absolute transition-all duration-500 ease-out"
+                style={{
+                  transform: `translateX(${position * spacing}px) translateY(${style.y}px) scale(${style.scale})`,
+                  zIndex: style.zIndex,
+                  opacity: style.opacity,
+                  pointerEvents: position === 0 ? 'auto' : 'none'
+                }}
+              >
+                <div className="bg-black shadow-2xl p-6 md:p-8 w-64 md:w-72 border-2 border-white-100 hover:border-blue-400 transition-all duration-300">
+                  <div className="flex flex-col items-center mb-4 md:mb-6">
+                    <img 
+                      width={56} 
+                      height={56} 
+                      alt={item.name} 
+                      src={item.img} 
+                      className="mb-3 md:mb-4 md:w-16 md:h-16 transition-transform duration-300 hover:scale-110" 
+                    />
+                    <p className="text-xl md:text-2xl font-bold text-white-800">{item.name}</p>
+                  </div>
+                  
+                  <ul className="space-y-2">
+                    {item.detail.map((detail, i) => (
+                      <li key={detail + i} className="flex items-start">
+                        <span className="text-white-500 mr-2">•</span>
+                        <p className="text-white-600 text-xs md:text-sm">{detail}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 md:left-4 z-50 p-2 md:p-3 shadow-lg bg-white/10 hover:bg-white/20 active:scale-95 transition-all duration-200"
+          aria-label="Previous skill"
+        >
+          <img 
+            width={32} 
+            height={32} 
+            alt={'chevron-left'} 
+            src={'./chevron_left.svg'} 
+            className="md:w-11 md:h-11" 
+          />
+        </button>
+        
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 md:right-4 z-50 p-2 md:p-3 shadow-lg bg-white/10 hover:bg-white/20 active:scale-95 transition-all duration-200"
+          aria-label="Next skill"
+        >
+          <img 
+            width={32} 
+            height={32} 
+            alt={'chevron-right'} 
+            src={'./chevron_left.svg'} 
+            className="transform rotate-180 md:w-11 md:h-11" 
+          />
+        </button>
+      </div>
+
+      {/* Dots Indicator */}
+      {/* <div className="flex justify-center gap-2 mt-6 md:mt-8">
+        {skillList.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-blue-500 w-8' 
+                : 'bg-gray-300 hover:bg-gray-400 w-2'
+            }`}
+            aria-label={`Go to skill ${index + 1}`}
+          />
+        ))}
+      </div> */}
+    </div>
+  );
+};
+
 
   const ExpLayout = () => {
     const data = [
