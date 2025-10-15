@@ -170,15 +170,15 @@ const SkillLayout = () => {
     return position;
   };
 
-  const getItemStyle = (position: any, isMobile: boolean) => {
+  const getItemStyle = (position: number, isMobile: boolean) => {
     if (isMobile) {
-      const styles = {
+      const styles: Record<number, { scale: number; zIndex: number; opacity: number; y: number }> = {
         0: { scale: 1, zIndex: 50, opacity: 1, y: 0 },
       };
       return styles[position] || { scale: 0, zIndex: 0, opacity: 0, y: 0 };
     }
     
-    const styles = {
+    const styles: Record<number, { scale: number; zIndex: number; opacity: number; y: number }> = {
       0: { scale: 1.2, zIndex: 50, opacity: 1, y: 0 },
       1: { scale: 0.85, zIndex: 45, opacity: 0.7, y: 80 },
       [-1]: { scale: 0.85, zIndex: 45, opacity: 0.7, y: 80 },
