@@ -8,6 +8,9 @@
     "start": "next start -p 4000",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=22 <23"
+  },
   "dependencies": {
     "express": "^4.17.3",
     "i18next": "^23.13.0",
